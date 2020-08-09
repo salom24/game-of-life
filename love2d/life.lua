@@ -5,7 +5,7 @@ local life = {}
 
 -- Local variables
 local cell, turns, alives
-local play, drawing
+local play, drawing, debug
 local time
 local dx, dy, size
 
@@ -48,7 +48,7 @@ local function pass()
 						neighbours[i] = neighbours[i] or {}
 						-- If already exists, add one. I not, equals 1
 						neighbours[i][j] = neighbours[i][j] and neighbours[i][j] + 1 or 1
-					else 
+					else
 						neighbours[i][j] = neighbours[i][j] or 0
 					end
 				end
@@ -73,6 +73,10 @@ function life.load()
 	size = 5
 	-- Frame time
 	time = 0
+	-- Set font
+	love.graphics.setNewFont(12)
+	-- Set debug
+	debug = true
 end
 
 -- Export functions
@@ -89,7 +93,9 @@ end
 
 function life.draw ()
 	-- Some game info
-	love.graphics.print("Cells alive: "..alives.."\nTurns: "..turns.."\nFPS: "..love.timer.getFPS().."\nPosition: "..0-dx.."/"..dy)
+	if debug then
+		love.graphics.print("Cells alive: "..alives.."\nTurns: "..turns.."\nFPS: "..love.timer.getFPS().."\nPosition: "..0-dx.."/"..dy)
+	end
 	-- Get dimensions
 	local w, h = love.graphics.getDimensions()
 	-- Apply scale
@@ -115,6 +121,7 @@ function life.keypressed(key)
 	elseif key == "q" then love.event.quit()
 	elseif key == "r" then reset()
 	elseif key == "i" then switchlevel("intro")
+	elseif key == "d" then debug = not debug
 	elseif key == "space" then play = not play end
 end
 
