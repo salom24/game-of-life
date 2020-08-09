@@ -1,0 +1,6 @@
+# Executables folder
+/bin
+
+# OS and editor files
+.DS_Store
+.vscode/

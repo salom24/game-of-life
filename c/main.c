@@ -11,22 +11,22 @@
 int main(int argc, const char * argv[])
 {
 
-    printf("====This is the game of life!====\n");
-    printf("\nPress enter...");
-    
-    getchar();
-    system("clear");
-    
-    int H , L;
-    
-    printf("How big do you want it?\n");
-    printf("Height: ");
-    scanf("%i",&H);
-    printf("Lenght: ");
-    scanf("%i",&L);
-    
-    game(H, L);
-    
-    return 0;
+	printf("====This is the game of life!====\n");
+	printf("\nPress enter...");
+	
+	getchar();
+	system("clear");
+	
+	int H , L;
+	
+	printf("How big do you want it?\n");
+	printf("Height: ");
+	scanf("%i",&H);
+	printf("Lenght: ");
+	scanf("%i",&L);
+	
+	game(H, L);
+	
+	return 0;
 }
 
